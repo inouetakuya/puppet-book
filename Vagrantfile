@@ -9,7 +9,7 @@ Vagrant::Config.run do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   # config.vm.box = "base"
   config.vm.box = "centos-6.4-puppet"
-  config.vm.box_url = "http://puppet-vagrantboxes.puppetlabs.com/centos-64-x64-vbox4210.box"
+  config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/centos-64-x64-vbox4210.box"
   config.vm.host_name = "puppet-book.local"
 
   # The url from where the 'config.vm.box' box will be fetched if it
