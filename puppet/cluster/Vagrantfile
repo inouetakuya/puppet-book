@@ -7,7 +7,20 @@ Vagrant::Config.run do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "base"
+  # config.vm.box = "base"
+  config.vm.box = "centos-6.4-puppet"
+  config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/centos-64-x64-vbox4210.box"
+
+  config.vm.define :app do |app_config|
+    app_config.vm.host_name = "app.puppet-book.local"
+    app_config.vm.network :private_network, ip: "192.168.0.100"
+  end
+
+  config.vm.define :log do |log_config|
+    log_config.vm.host_name = "log.puppet-book.local"
+    log_config.vm.network :private_network, ip: "192.168.0.101"
+    log_config.vm.network :forwarded_port, guest: 24224, host: 24224
+  end
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
